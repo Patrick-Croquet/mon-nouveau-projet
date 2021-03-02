@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}La liste des auteurs{% endblock %}
+{% block title %}Les ouvrages{% endblock %}
 
 {% block body %}
 <style>
@@ -9,9 +9,6 @@
 </style>
 
 <div class="example-wrap">
-    <h1>La liste des auteurs</h1>
-    {% for auteur in auteurs %}
-    <p>{{ auteur.auteur }}</p>
-    {% endfor %}
+    <h1>Les ouvrages</h1>
 </div>
 {% endblock %}
