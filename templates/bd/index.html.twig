@@ -11,7 +11,7 @@
 <div class="example-wrap">
     <h1>La liste des auteurs</h1>
     {% for auteur in auteurs %}
-    <p>{{ auteur.auteur }}</p>
+    <p><a href="{{ path('bd_show', {id :auteur.id}) }}">{{ auteur.auteur }}</a></p>
     {% endfor %}
 </div>
 {% endblock %}
