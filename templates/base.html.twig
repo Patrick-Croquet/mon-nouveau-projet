@@ -41,7 +41,7 @@
                   <a class="nav-link" href="#">Prix</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Contact</a>
+                  <a class="nav-link" href="{{ path('contact') }}">Contact</a>
                 </li>
               </ul>
               <form class="form-inline my-2 my-lg-0">
@@ -76,7 +76,9 @@
             .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
           </style>
           
-        <div class="example-wrapper">  
+        <div class="example-wrapper">
+        {% include 'flash_messages.html.twig' %}
+          
         {% block body %}{% endblock %}
         </div>
     </body>

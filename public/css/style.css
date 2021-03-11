@@ -15,3 +15,13 @@
     background: #F5F5F5; 
     padding: 2px 6px; 
 }
+
+.active a.page-link {
+    color:blanchedalmond;
+    background-color: indigo;
+    border-color: yellow;
+}
+
+.active a.page-link:hover {
+    color:teal;
+}    
