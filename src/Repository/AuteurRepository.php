@@ -59,4 +59,12 @@ class AuteurRepository extends ServiceEntityRepository
         ->getQuery()
         ->getResult();
     }
+
+    public function countAllAuteurs()
+    {
+        return $this->createQueryBuilder('a')
+        ->select('COUNT(a.id) as nbauteurs')
+        ->getQuery()
+        ->getOneOrNullResult();   
+    }
 }

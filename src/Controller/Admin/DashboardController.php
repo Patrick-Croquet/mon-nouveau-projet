@@ -9,6 +9,9 @@ use App\Entity\Editeur;
 use App\Entity\Produit;
 use App\Entity\Fournisseur;
 
+use App\Repository\AuteurRepository;
+use App\Repository\ProduitRepository;
+
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -17,12 +20,30 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 
 class DashboardController extends AbstractDashboardController
 {
+    protected $AuteurRepository;
+    protected $ProduitRepository;
+    public function __construct(
+        AuteurRepository $AuteurRepository,
+        ProduitRepository $ProduitRepository,
+    )
+    {
+       $this->AuteurRepository = $AuteurRepository;
+       $this->ProduitRepository = $ProduitRepository; 
+    }
+
     /**
      * @Route("/admin", name="admin")
      */
     public function index(): Response
     {
-        return parent::index();
+        /*return parent::index();*/
+
+        $countAuthors = $this->AuteurRepository->countAllAuteurs();
+        $countProducts = $this->ProduitRepository->countAllProduits();
+        return $this->render('admin/dashboard.html.twig', [
+            'Auteurs' => $countAuthors,
+            'Produits' => $countProducts
+        ]);
     }
 
     public function configureDashboard(): Dashboard
